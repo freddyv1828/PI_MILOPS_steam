@@ -1,13 +1,10 @@
 import pandas as pd
 from fastapi import FastAPI
-import json
 from Funciones.play_time_genre import playTimeGenre
 from Funciones.sentiment_analysis import sentiment_analysis
 from  Funciones.user_for_genre import user_for_genre
+from Funciones.userRecommend import userRecomend
 from Funciones.userWorstDeveloper import userWorkstDeveloper
-
-df_userRecommend = pd.read_parquet("Funciones/data/userRecommend.parquet")
-
 
 app = FastAPI()
 
@@ -52,19 +49,10 @@ async def get_userRecommend(año: int):
         Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
     
     '''
-    games_year = df_userRecommend[df_userRecommend["year"]== año]
-    recommends = games_year[(games_year["reviews_recommend"]== True) & (games_year["sentiment_analysis"]== 2)]
     
-    # Agrupamos por juego recomendados
-    games = recommends["title"].value_counts().reset_index()
-    games.columns = ["games", "recommend_count"]
+    result = userRecomend(año)
     
-    # Ordenamos y obtenemos el top3
-    top_games = games.nlargest(3, "recommend_count")
-    
-    resultado = [{"Puesto {}: {}".format(i + 1, row['games']): row['recommend_count']} for i, row in top_games.iterrows()] # type: ignore
-    
-    return json.dumps(resultado)
+    return result
 
 # Endpoint 4
 
