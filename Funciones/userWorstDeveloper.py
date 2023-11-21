@@ -13,7 +13,7 @@ df_userWorstDeveloper = pd.read_parquet(ruta)
 
 # Creamos la funcion
 
-def userWorkstDeveloper(año: str):
+def userWorkstDeveloper(año: int):
     df = df_userWorstDeveloper[df_userWorstDeveloper["year"]== año]
     #filtramos con comenntarios negativos
     games_recommend = df[(df["reviews_recommend"]== False) & (df["sentiment_analysis"]== 1)]
@@ -28,3 +28,6 @@ def userWorkstDeveloper(año: str):
     resultado = [{"Puesto {}: {}".format(i + 1, row['developer']): row['recommend_count']} for i, row in top_developer.iterrows()] # type: ignore
     
     return json.dumps(resultado)
+
+pr = userWorkstDeveloper(2014)
+print(pr)

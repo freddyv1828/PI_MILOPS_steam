@@ -57,7 +57,7 @@ def get_userRecommend(año: str):
 # Endpoint 4
 
 @app.get("/usersWorstDeveloper/{año}")
-def get_usersWorstDeveloper(año: str):
+def get_usersWorstDeveloper(año):
     
     '''Ingresa un año y veras el top 3 de de desarrolladoras con juegos menos recomendados por los usuarios para el año dado 
 

@@ -10,7 +10,7 @@ df_userRecommend = pd.read_parquet(ruta)
 
 # Creamos la funcion
 
-def userRecomend(año: str):
+def userRecomend(año: int):
     games_year = df_userRecommend[df_userRecommend["year"]== año]
     recommends = games_year[(games_year["reviews_recommend"]== True) & (games_year["sentiment_analysis"]== 2)]
     
@@ -25,3 +25,6 @@ def userRecomend(año: str):
     
     return json.dumps(resultado)
 
+
+pr = userRecomend(2011)
+print(pr)
