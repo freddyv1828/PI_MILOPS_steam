@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 # Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales)
 # Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
@@ -22,5 +23,5 @@ def userRecomend(año: str):
     
     resultado = [{"Puesto {}: {}".format(i + 1, row['games']): row['recommend_count']} for i, row in top_games.iterrows()] # type: ignore
     
-    return resultado
+    return json.dumps(resultado)
 

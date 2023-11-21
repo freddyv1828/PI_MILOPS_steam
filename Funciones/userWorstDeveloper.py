@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 # UsersWorstDeveloper( año : int ): Devuelve el top 3 de desarrolladoras con juegos MENOS recomendados por usuarios para el año dado. 
 # (reviews.recommend = False y comentarios negativos)
@@ -26,5 +27,4 @@ def userWorkstDeveloper(año: str):
     
     resultado = [{"Puesto {}: {}".format(i + 1, row['developer']): row['recommend_count']} for i, row in top_developer.iterrows()] # type: ignore
     
-    return resultado
-
+    return json.dumps(resultado)
