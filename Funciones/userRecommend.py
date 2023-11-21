@@ -26,5 +26,3 @@ def userRecomend(año: int):
     return json.dumps(resultado)
 
 
-pr = userRecomend(2011)
-print(pr)

@@ -29,5 +29,3 @@ def userWorkstDeveloper(año: int):
     
     return json.dumps(resultado)
 
-pr = userWorkstDeveloper(2014)
-print(pr)

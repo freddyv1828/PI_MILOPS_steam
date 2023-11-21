@@ -42,7 +42,7 @@ def get_userForGenre(genero: str):
 # Endpoint 3
 
 @app.get("/userRecommend/{año}")
-def get_userRecommend(año: int):
+async def get_userRecommend(año: int):
     
     '''Ingresa un año y veras el top 3 de juegos MÁS recomendados por los usuarios para el año dado 
 
@@ -57,7 +57,7 @@ def get_userRecommend(año: int):
 # Endpoint 4
 
 @app.get("/usersWorstDeveloper/{año}")
-def get_usersWorstDeveloper(año: int):
+async def get_usersWorstDeveloper(año: int):
     
     '''Ingresa un año y veras el top 3 de de desarrolladoras con juegos menos recomendados por los usuarios para el año dado 
 
