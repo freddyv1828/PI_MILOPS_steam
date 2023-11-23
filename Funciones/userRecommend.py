@@ -21,8 +21,7 @@ def userRecomend(año: int):
     # Ordenamos y obtenemos el top3
     top_games = games.nlargest(3, "recommend_count")
     
-    resultado = [{"Puesto {}: {}".format(i + 1, row['games']): row['recommend_count']} for i, row in top_games.iterrows()] # type: ignore
+    resultado = [{"Puesto {}: {}".format(i + 1, row['games']): row['recommend_count']} for i, row in top_games.iterrows()] 
     
-    return json.dumps(resultado)
-
+    return resultado
 

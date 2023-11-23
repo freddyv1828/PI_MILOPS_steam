@@ -25,9 +25,9 @@ def userWorkstDeveloper(año: int):
     top_developer = developer_recommend.nlargest(3, "recommend_count")
     top_developer.sort_values("recommend_count", ascending=False)
     
-    resultado = [{"Puesto {}: {}".format(i + 1, row['developer']): row['recommend_count']} for i, row in top_developer.iterrows()] # type: ignore
+    resultado = [{"Puesto {}: {}".format(i + 1, row['developer']): row['recommend_count']} for i, row in top_developer.iterrows()] 
     
-    return json.dumps(resultado)
+    return resultado
 
 def presentacion():
     '''
