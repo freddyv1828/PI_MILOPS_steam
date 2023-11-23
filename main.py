@@ -7,6 +7,7 @@ from  Funciones.user_for_genre import user_for_genre
 from Funciones.userRecommend import userRecomend
 from Funciones.userWorstDeveloper import userWorkstDeveloper
 from Funciones.userWorstDeveloper import presentacion
+from Funciones.recomendacion_juego import recomendacion_juego
 
 app = FastAPI()
 
@@ -83,6 +84,8 @@ async def get_usersWorstDeveloper(año: int):
     
     return result
 
+# Endpoint 5
+
 @app.get("/sentiment_analysis/{desarrolladora}")
 def get_sentiment_analysis(desarrolladora: str):
     
@@ -97,6 +100,26 @@ def get_sentiment_analysis(desarrolladora: str):
     return result
 
 
+# Endtpoint 6
+
+@app.get("/recomendacion_juego/{game_id}")
+def get_recomendacion_juego(game_id: int):
+    
+    '''Ingresa un el ide de un juego veras una lista con 5 juegos recomendados similares al ingresado.
+
+        Ejemplo de retorno: recomendacion_juego(3000)
+        
+        [{'id': '636132',
+        'title': 'X-Plane 11 - Add-on: Aerosoft Airport Bonaire Flamingo'},
+        {'id': '747910', 'title': 'Disassembly 3D'},
+        {'id': '603550', 'title': 'Schlag den Star - Das Spiel'},
+        {'id': '271412', 'title': 'Rocksmith® 2014 – Aerosmith - “Oh Yeah”'},
+        {'id': '342832', 'title': 'Rocksmith® 2014 – All That Remains - “Two Weeks”'}]
+    
+    '''
+    recomend = recomendacion_juego(game_id)
+    return recomend
+    
 
  
 
