@@ -16,7 +16,7 @@ df_userWorstDeveloper = pd.read_parquet(ruta)
 def userWorkstDeveloper(año: int):
     df = df_userWorstDeveloper[df_userWorstDeveloper["year"]== año]
     #filtramos con comenntarios negativos
-    games_recommend = df[(df["reviews_recommend"]== False) & (df["sentiment_analysis"]== 1)]
+    games_recommend = df[df["reviews_recommend"]== False & df["sentiment_analysis"]== 1]
     
     developer_recommend = games_recommend["developer"].value_counts().reset_index()
     developer_recommend.columns = ["developer", "recommend_count"]
