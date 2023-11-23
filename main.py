@@ -1,14 +1,26 @@
 import pandas as pd
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from Funciones.play_time_genre import playTimeGenre
 from Funciones.sentiment_analysis import sentiment_analysis
 from  Funciones.user_for_genre import user_for_genre
 from Funciones.userRecommend import userRecomend
 from Funciones.userWorstDeveloper import userWorkstDeveloper
-from Funciones.recomendacion_juego import top_game
-from Funciones.recomendacion_juego import similar_user_recs
+from Funciones.userWorstDeveloper import presentacion
 
 app = FastAPI()
+
+@app.get(path="/", 
+         response_class=HTMLResponse,
+         tags=["Home"])
+def home():
+    '''
+    Página de inicio que muestra una presentación.
+
+    Returns:
+    HTMLResponse: Respuesta HTML que muestra la presentación.
+    '''
+    return presentacion()
 
 
 # Endpoint 1
@@ -85,19 +97,7 @@ def get_sentiment_analysis(desarrolladora: str):
     return result
 
 
-# Endpoint 5
 
-@app.get("/recomendacion_juego/{juego}")
-def get_topGame(game: str):
-     '''
-        INSTRUCCIONES<br>
-                    1. Haga clik en "Try it out".<br>
-                    2. Ingrese el nombre de un juego en box abajo.<br>
-        
-                    Ingresa un el nombre de una videojuego y veras una lista con 5 juegos recomendados similares al ingresado
-    '''
-     result = top_game(game)
-     return result
  
 
  
