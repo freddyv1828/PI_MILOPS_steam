@@ -99,17 +99,5 @@ def get_topGame(game: str):
      result = top_game(game)
      return result
  
- # Endpint 6
- 
-@app.get("/recomendacion_usuario/{usuario}")
-def get_similar_user_recs(user: str):
-     '''
-        INSTRUCCIONES<br>
-                    1. Haga clik en "Try it out".<br>
-                    2. Ingrese el id de un usuario en el box abajo.<br>
-        
-                    Ingresa un el id de un usuario y veras una lista con 5 juegos recomendados para dicho usuario.
-    '''
-     result = similar_user_recs(user)
-     return result
+
  
