@@ -5,6 +5,8 @@ from Funciones.sentiment_analysis import sentiment_analysis
 from  Funciones.user_for_genre import user_for_genre
 from Funciones.userRecommend import userRecomend
 from Funciones.userWorstDeveloper import userWorkstDeveloper
+from Funciones.recomendacion_juego import top_game
+from Funciones.recomendacion_juego import similar_user_recs
 
 app = FastAPI()
 
@@ -81,3 +83,33 @@ def get_sentiment_analysis(desarrolladora: str):
     result = sentiment_analysis(desarrolladora)
     
     return result
+
+
+# Endpoint 5
+
+@app.get("/recomendacion_juego/{juego}")
+def get_topGame(game: str):
+     '''
+        INSTRUCCIONES<br>
+                    1. Haga clik en "Try it out".<br>
+                    2. Ingrese el nombre de un juego en box abajo.<br>
+        
+                    Ingresa un el nombre de una videojuego y veras una lista con 5 juegos recomendados similares al ingresado
+    '''
+     result = top_game(game)
+     return result
+ 
+ # Endpint 6
+ 
+@app.get("/recomendacion_usuario/{usuario}")
+def get_similar_user_recs(user: str):
+     '''
+        INSTRUCCIONES<br>
+                    1. Haga clik en "Try it out".<br>
+                    2. Ingrese el id de un usuario en el box abajo.<br>
+        
+                    Ingresa un el id de un usuario y veras una lista con 5 juegos recomendados para dicho usuario.
+    '''
+     result = similar_user_recs(user)
+     return result
+ 
