@@ -61,7 +61,7 @@ def presentacion():
             <h1>API de consultas de videojuegos de la plataforma Steam</h1>
             <p>Bienvenido a la API de Steam donde se pueden hacer diferentes consultas sobre la plataforma de videojuegos.</p>
             <p>INSTRUCCIONES:</p>
-            <p>Escriba <span style="background-color: lightgray;">/docs</span> a continuación de la URL actual de esta página para interactuar con la API</p>
+            <p>Para interactuar con la API ingresa en el siguiente enlace: <a href="https://pi-steam-milops.onrender.com/docs#/> </p>
             <p> Visita mi perfil en <a href="https://www.linkedin.com/in/freddy-python-developer/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-blue?style=flat-square&logo=linkedin"></a></p>
             <p> El desarrollo de este proyecto esta en <a href="https://github.com/freddyv1828/PI_MILOPS_steam.git"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-black?style=flat-square&logo=github"></a></p>
         </body>
